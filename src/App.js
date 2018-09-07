@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+import { addTodo, toggleTodo, setVisibilityFilter, visibilityFilters } from "./States/actions";
+import store from "./States/store";
+
+console.log(store.getState());
+const unsubscribe = store.subscribe(() => console.log(store.getState()));
+
+store.dispatch(addTodo("Item 1"));
+store.dispatch(addTodo("Item 2"));
+store.dispatch(addTodo("Item 3"));
+
+store.dispatch(toggleTodo(store.getState().todos[1].uuid)); // Kinda awkward to use uuid...
+// In an actual React app, UUID should be obtained as a prop, so it'll be less awkward.
+
+store.dispatch(setVisibilityFilter(visibilityFilters.SHOW_ACTIVE));
+
+unsubscribe();
+
 class App extends Component {
   render() {
     return (
@@ -17,5 +35,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

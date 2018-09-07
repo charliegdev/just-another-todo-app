@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { uuidv4 } from "uuid";
+import uuidv4 from "uuid/v4";
 import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, visibilityFilters } from "./actions";
 
 const { SHOW_ALL } = visibilityFilters;
