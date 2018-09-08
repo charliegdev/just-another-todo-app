@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Container, Header, Icon } from "semantic-ui-react";
-
+import TodoList from "./components/TodoList";
 class App extends Component {
   render() {
     return (
-      <Container text>
+      <div className="ui container text center aligned">
         <br />
-        <Header as="h1" textAlign="center">
-          <Icon name="tasks" />
-          <Header.Content>
+        <h1 className="ui header">
+          <i className="icon tasks" />
+          <div className="content">
             Just Another Todo App
-            <Header.Subheader>Made in React, Redux & Semantic UI React</Header.Subheader>
-          </Header.Content>
-        </Header>
-      </Container>
+            <div className="sub header">Made in React, Redux & Semantic UI React</div>
+          </div>
+        </h1>
+        <TodoList />
+      </div>
     );
   }
 }
