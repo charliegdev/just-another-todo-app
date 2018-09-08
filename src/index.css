@@ -4,6 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-.strike-through {
+.completed-item {
   text-decoration: line-through;
+  color: grey;
 }
