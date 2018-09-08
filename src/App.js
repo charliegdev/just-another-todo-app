@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoList from "./components/TodoList";
+import store from "./states/store"
 class App extends Component {
   render() {
     return (
@@ -12,7 +13,7 @@ class App extends Component {
             <div className="sub header">Made in React, Redux & Semantic UI React</div>
           </div>
         </h1>
-        <TodoList />
+        <TodoList todos={store.getState().todos} onTodoClick={uuid => console.log(uuid)} />
       </div>
     );
   }
