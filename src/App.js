@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoList from "./components/TodoList";
+import TodoList from "./components/TodoList/TodoList";
 import store from "./states/store"
 class App extends Component {
   render() {

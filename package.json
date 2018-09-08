@@ -19,6 +19,7 @@
   "devDependencies": {
     "eslint": "^5.5.0",
     "eslint-plugin-jest": "^21.22.0",
-    "eslint-plugin-react": "^7.11.1"
+    "eslint-plugin-react": "^7.11.1",
+    "react-test-renderer": "^16.5.0"
   }
 }
