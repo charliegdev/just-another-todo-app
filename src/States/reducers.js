@@ -20,10 +20,10 @@ const partialTodos = [
   { text: "Learn basic mortgage knowledge" }
 ];
 
-const initialTodos = partialTodos.map(partialTodo => ({ 
+const initialTodos = partialTodos.map((partialTodo, index) => ({ 
   ...partialTodo,
   uuid: uuidv4(),
-  completed: false
+  completed: index % 2 === 0 ? true : false
 }));
 
 const todos = (state = initialTodos, action) => {
