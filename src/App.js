@@ -6,11 +6,11 @@ class App extends Component {
     return (
       <Container text>
         <br />
-        <Header as="h1">
+        <Header as="h1" textAlign="center">
           <Icon name="tasks" />
           <Header.Content>
             Just Another Todo App
-            <Header.Subheader>In React, Redux & Semantic UI React</Header.Subheader>
+            <Header.Subheader>Made in React, Redux & Semantic UI React</Header.Subheader>
           </Header.Content>
         </Header>
       </Container>
