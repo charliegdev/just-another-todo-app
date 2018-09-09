@@ -6,15 +6,9 @@ const { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } = visibilityFilters;
 
 const Footer = () => (
   <div className="ui segment center aligned">
-    <FilterButton filter={SHOW_ALL} iconName="server" onClick={() => console.log("clicked")}>
-      All Items
-    </FilterButton>
-    <FilterButton filter={SHOW_ACTIVE} iconName="question circle" onClick={() => console.log("clicked")}>
-      In Progress
-    </FilterButton>
-    <FilterButton filter={SHOW_COMPLETED} iconName="thumbs up" onClick={() => console.log("clicked")}>
-      Completed
-    </FilterButton>
+    <FilterButton filter={SHOW_ALL} iconName="server">All Items</FilterButton>
+    <FilterButton filter={SHOW_ACTIVE} iconName="question circle">In Progress</FilterButton>
+    <FilterButton filter={SHOW_COMPLETED} iconName="thumbs up">Completed</FilterButton>
   </div>
 );
 
