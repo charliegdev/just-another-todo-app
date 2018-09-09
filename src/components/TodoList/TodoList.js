@@ -2,11 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import Todo from "../Todo";
 
-const TodoList = ({ todos, onTodoClick }) => 
-  <div className="ui large aligned divided list">
-    <h4 className="ui header">Click on an item to toggle it</h4>
-    {todos.map(todo => <Todo key={todo.uuid} {...todo} onClick={() => onTodoClick(todo.uuid)} />)}
-  </div> 
+const TodoList = ({ todos, onTodoClick, onTodoDelete }) => 
+  <table className="ui very basic celled table sortable">
+    <thead>
+      <tr>
+        <th className="">Name</th>
+        <th className="sorted descending">Created</th>
+        <th className="">Status</th>
+        <th>Toggle</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {todos.map(todo => <Todo 
+        key={todo.uuid} 
+        {...todo} 
+        onTodoClick={onTodoClick} 
+        onTodoDelete={onTodoDelete}
+      />)}
+    </tbody>
+  </table> 
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(
@@ -16,7 +31,8 @@ TodoList.propTypes = {
       text: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  onTodoClick: PropTypes.func.isRequired
+  onTodoClick: PropTypes.func.isRequired,
+  onTodoDelete: PropTypes.func.isRequired
 };
 
 export default TodoList;

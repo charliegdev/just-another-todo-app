@@ -5,12 +5,12 @@ import Todo from "./Todo";
 
 describe("Todo", () => {
   const mockFunc = () => console.log("test");
-  const todo = <Todo text="test text" uuid="testUUID" completed={false} onClick={mockFunc} />
+  const todo = <Todo text="test text" uuid="testUUID" completed={false} onTodoClick={mockFunc} onTodoDelete={mockFunc} />
 
   it("renders without crashing", () => {
-    const div = document.createElement("div");
-    ReactDOM.render(todo, div);
-    ReactDOM.unmountComponentAtNode(div);
+    const tbody = document.createElement("tbody");
+    ReactDOM.render(todo, tbody);
+    ReactDOM.unmountComponentAtNode(tbody);
   });
 
   test("has a valid snapshot", () => {
