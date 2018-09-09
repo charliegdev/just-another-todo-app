@@ -1,36 +1,48 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import TodoList from "./components/TodoList/TodoList";
+import store from "./states/store";
+import Button from "./components/Button";
 
-
-import { addTodo, toggleTodo, setVisibilityFilter, visibilityFilters } from "./States/actions";
-import store from "./States/store";
-
-console.log(store.getState());
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
-
-store.dispatch(addTodo("Item 1"));
-store.dispatch(addTodo("Item 2"));
-store.dispatch(addTodo("Item 3"));
-
-store.dispatch(toggleTodo(store.getState().todos[1].uuid)); // Kinda awkward to use uuid...
-// In an actual React app, UUID should be obtained as a prop, so it'll be less awkward.
-
-store.dispatch(setVisibilityFilter(visibilityFilters.SHOW_ACTIVE));
-
-unsubscribe();
-
+const todos = store.getState().todos;
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="ui container text center aligned">
+        <br />
+        <h1 className="ui header">
+          <i className="icon tasks" />
+          <div className="content">
+            Just Another Todo App
+            <div className="sub header">
+              Made in React, Redux & Semantic UI React
+            </div>
+          </div>
+        </h1>
+        <TodoList todos={todos} onTodoClick={uuid => console.log(uuid)} />
+        <Button
+          active={false}
+          total={todos.length}
+          iconName="server"
+          onClick={() => console.log("clicked")}
+        >
+          All Items
+        </Button>
+        <Button
+          active={true}
+          total={todos.filter(todo => todo.completed === false).length}
+          iconName="thumbtack"
+          onClick={() => console.log("clicked")}
+        >
+          Incomplete
+        </Button>
+        <Button
+          active={false}
+          total={todos.filter(todo => todo.completed === true).length}
+          iconName="heart"
+          onClick={() => console.log("clicked")}
+        >
+          Completed
+        </Button>
       </div>
     );
   }

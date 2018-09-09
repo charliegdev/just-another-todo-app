@@ -13,7 +13,20 @@ const visibilityFilter = (state = SHOW_ALL, action) => {
   }
 };
 
-const todos = (state = [], action) => {
+const partialTodos = [
+  { text: "Learn React from official doc" },
+  { text: "Learn Redux from official doc" },
+  { text: "Lent" },
+  { text: "Learn basic mortgage knowledge" }
+];
+
+const initialTodos = partialTodos.map((partialTodo, index) => ({ 
+  ...partialTodo,
+  uuid: uuidv4(),
+  completed: index % 2 === 0 ? true : false
+}));
+
+const todos = (state = initialTodos, action) => {
   switch (action.type) {
   case ADD_TODO:
     return [...state, { 
