@@ -10,7 +10,7 @@ const Footer = () => (
       All Items
     </FilterButton>
     <FilterButton filter={SHOW_ACTIVE} iconName="question circle" onClick={() => console.log("clicked")}>
-      Incomplete
+      In Progress
     </FilterButton>
     <FilterButton filter={SHOW_COMPLETED} iconName="thumbs up" onClick={() => console.log("clicked")}>
       Completed

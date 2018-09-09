@@ -5,7 +5,7 @@ import { addTodo } from "../states/actions";
 
 const onSubmit = (e, dispatch, input) => {
   e.preventDefault();
-  if (!input.value.trim()) return; // Don't accept empty Todos. Could do it in reducer as well.
+  if (!input.value.trim()) return;   
   dispatch(addTodo(input.value));
   input.value = ""
 };

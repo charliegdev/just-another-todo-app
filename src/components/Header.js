@@ -9,7 +9,7 @@ const Header = () =>
       <i className="icon tasks" />
       <div className="content">
         Just Another Todo App
-        <div className="sub header">Made in React, Redux & Semantic UI React</div>
+        <div className="sub header">Made in React, Redux & Semantic UI</div>
       </div>
     </h1>
     <br />

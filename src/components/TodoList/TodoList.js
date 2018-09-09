@@ -4,6 +4,7 @@ import Todo from "../Todo";
 
 const TodoList = ({ todos, onTodoClick }) => 
   <div className="ui large aligned divided list">
+    <h4 className="ui header">Click on an item to toggle it</h4>
     {todos.map(todo => <Todo key={todo.uuid} {...todo} onClick={() => onTodoClick(todo.uuid)} />)}
   </div> 
 
