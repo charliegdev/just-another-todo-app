@@ -5,7 +5,7 @@ import FilterButton from "../../containers/FilterButton";
 const { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } = visibilityFilters;
 
 const Footer = () => (
-  <div className="ui segment">
+  <div className="ui segment center aligned">
     <FilterButton filter={SHOW_ALL} iconName="server" onClick={() => console.log("clicked")}>
       All Items
     </FilterButton>

@@ -1,20 +1,18 @@
 import React, { Component } from "react";
+import Header from "./components/Header";
 import Footer from "./components/Footer";
 import VisibleTodoList from "./containers/VisibleTodoList";
+import AddTodo from "./containers/AddTodo";
 
 class App extends Component {
   render() {
     return (
-      <div className="ui container text center aligned">
+      <div className="ui container text">
+        <Header />
+        <AddTodo />
         <br />
-        <h1 className="ui header">
-          <i className="icon tasks" />
-          <div className="content">
-            Just Another Todo App
-            <div className="sub header">Made in React, Redux & Semantic UI React</div>
-          </div>
-        </h1>
         <VisibleTodoList />
+        <br />
         <Footer />
       </div>
     );
