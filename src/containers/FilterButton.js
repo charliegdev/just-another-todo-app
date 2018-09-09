@@ -15,10 +15,10 @@ const mapStateToProps = (state, ownProps) => {
     total = todos.length;
     break;
   case SHOW_ACTIVE:
-    total = todos.filter(todo => todo.completed).length;
+    total = todos.filter(todo => !todo.completed).length;
     break;
   case SHOW_COMPLETED:
-    total = todos.filter(todo => !todo.completed).length;
+    total = todos.filter(todo => todo.completed).length;
     break;
   default: // this shouldn't happen anyway
     total = 0;
