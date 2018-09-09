@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addTodo } from "../states/actions";
+import { actionCreators } from "../states/actions";
+
+const { addTodo } = actionCreators;
 
 const onSubmit = (e, dispatch, input) => {
   e.preventDefault();
