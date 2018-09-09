@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Todo from "../Todo";
 
 const TodoList = ({ todos, onTodoClick }) => 
-  <div className="ui large aligned animated list">
+  <div className="ui large aligned divided list">
     {todos.map(todo => <Todo key={todo.uuid} {...todo} onClick={() => onTodoClick(todo.uuid)} />)}
   </div> 
 

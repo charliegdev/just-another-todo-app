@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import TodoList from "./components/TodoList/TodoList";
 import store from "./states/store";
 import Button from "./components/Button";
+import VisibleTodoList from "./containers/VisibleTodoList";
 
 const todos = store.getState().todos;
 class App extends Component {
@@ -18,7 +18,7 @@ class App extends Component {
             </div>
           </div>
         </h1>
-        <TodoList todos={todos} onTodoClick={uuid => console.log(uuid)} />
+        <VisibleTodoList />
         <Button
           active={false}
           total={todos.length}
