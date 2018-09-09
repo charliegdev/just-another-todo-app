@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import uuidv4 from "uuid/v4";
-import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER, visibilityFilters } from "./actions";
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO, SET_VISIBILITY_FILTER, visibilityFilters } from "./actions";
 
 const { SHOW_ALL } = visibilityFilters;
 
@@ -39,6 +39,8 @@ const todos = (state = initialTodos, action) => {
       { ...todo, completed: !todo.completed } :
       todo
     );
+  case DELETE_TODO: 
+    return state.filter(todo => todo.uuid !== action.uuid);
   default:
     return state;
   }

@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Todo = ({ onClick, completed = false, text }) => (
-  <tr className="item" onClick={onClick}>
+const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete }) => (
+  <tr className="item">
     <td>
       <div className={"content" + (completed ? " completed-item" : "")}>
         <a className="header">{text}</a>
@@ -15,18 +15,20 @@ const Todo = ({ onClick, completed = false, text }) => (
       {completed ? "Completed" : "In progress"}
     </td>
     <td>
-      <button className="positive ui button">Finish</button>
+      <button className="positive ui button" onClick={() => onTodoClick(uuid)}>Finish</button>
     </td>
     <td>
-      <button className="negative ui button">Delete</button>
+      <button className="negative ui button" onClick={() => onTodoDelete(uuid)}>Delete</button>
     </td>
   </tr>
 );
 
 Todo.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  uuid: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired
+  onTodoClick: PropTypes.func.isRequired,
+  onTodoDelete: PropTypes.func.isRequired
 };
 
 export default Todo;
