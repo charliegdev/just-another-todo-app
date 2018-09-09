@@ -2,14 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete }) => (
+  // I wish there are better ways to determine what to display/do without using several ternary operators
   <tr className="item">
     <td>
       <div className={"content" + (completed ? " completed-item" : "")}>
         <a className="header">{text}</a>
       </div>
-    </td>
-    <td>
-      22:01
     </td>
     <td>
       {completed ? "Completed" : "In progress"}
@@ -22,6 +20,14 @@ const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete }) => (
     </td>
     <td>
       <button className="negative ui button" onClick={() => onTodoDelete(uuid)}>Delete</button>
+    </td>
+    <td>
+      <button className="ui icon button">
+        <i className="arrow circle up icon"></i>
+      </button>
+      <button className="ui icon button">
+        <i className="arrow circle down icon"></i>
+      </button>
     </td>
   </tr>
 );

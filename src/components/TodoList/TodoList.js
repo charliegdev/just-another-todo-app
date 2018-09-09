@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import Todo from "../Todo";
 
 const TodoList = ({ todos, onTodoClick, onTodoDelete }) => 
-  <table className="ui very basic celled table sortable">
+  <table className="ui very basic celled table">
     <thead>
       <tr>
-        <th className="">Name</th>
-        <th className="sorted descending">Created</th>
-        <th className="">Status</th>
+        <th>Name</th>
+        <th>Status</th>
         <th>Toggle</th>
         <th>Delete</th>
+        <th>Reorder</th>
       </tr>
     </thead>
     <tbody>
