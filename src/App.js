@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import store from "./states/store";
-import Button from "./components/Button";
+import Footer from "./components/Footer";
 import VisibleTodoList from "./containers/VisibleTodoList";
 
-const todos = store.getState().todos;
 class App extends Component {
   render() {
     return (
@@ -13,38 +11,14 @@ class App extends Component {
           <i className="icon tasks" />
           <div className="content">
             Just Another Todo App
-            <div className="sub header">
-              Made in React, Redux & Semantic UI React
-            </div>
+            <div className="sub header">Made in React, Redux & Semantic UI React</div>
           </div>
         </h1>
         <VisibleTodoList />
-        <Button
-          active={false}
-          total={todos.length}
-          iconName="server"
-          onClick={() => console.log("clicked")}
-        >
-          All Items
-        </Button>
-        <Button
-          active={true}
-          total={todos.filter(todo => todo.completed === false).length}
-          iconName="thumbtack"
-          onClick={() => console.log("clicked")}
-        >
-          Incomplete
-        </Button>
-        <Button
-          active={false}
-          total={todos.filter(todo => todo.completed === true).length}
-          iconName="heart"
-          onClick={() => console.log("clicked")}
-        >
-          Completed
-        </Button>
+        <Footer />
       </div>
     );
   }
 }
+
 export default App;

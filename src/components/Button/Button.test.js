@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
 import Button from "./Button";
 
-describe("Link", () => {
+describe("Button", () => {
   const mockFunc = () => console.log("test");
   const button = <Button active={true} total={500} iconName="heart" onClick={mockFunc}>Completed</Button>;
 

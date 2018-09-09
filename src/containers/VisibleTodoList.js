@@ -7,9 +7,11 @@ const getVisibleTodos = (todos, filter) => {
   case visibilityFilters.SHOW_ALL:
     return todos;
   case visibilityFilters.SHOW_ACTIVE:
-    return todos.filter(todo => todo.completed);
-  case visibilityFilters.SHOW_COMPLETED:
     return todos.filter(todo => !todo.completed);
+  case visibilityFilters.SHOW_COMPLETED:
+    return todos.filter(todo => todo.completed);
+  default:
+    return todos;
   }
 };
 
