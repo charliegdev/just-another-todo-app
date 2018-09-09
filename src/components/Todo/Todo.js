@@ -2,12 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Todo = ({ onClick, completed = false, text }) => (
-  <div className="item" onClick={onClick}>
-    <i className={"icon " + (completed ? "thumbs up" : "question circle")}></i>
-    <div className={"content" + (completed ? " completed-item" : "")}>
-      <a className="header">{text}</a>
-    </div>
-  </div>
+  <tr className="item" onClick={onClick}>
+    <td>
+      <div className={"content" + (completed ? " completed-item" : "")}>
+        <a className="header">{text}</a>
+      </div>
+    </td>
+    <td>
+      22:01
+    </td>
+    <td>
+      {completed ? "Completed" : "In progress"}
+    </td>
+    <td>
+      <button className="positive ui button">Finish</button>
+    </td>
+    <td>
+      <button className="negative ui button">Delete</button>
+    </td>
+  </tr>
 );
 
 Todo.propTypes = {
