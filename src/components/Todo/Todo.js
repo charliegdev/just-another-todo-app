@@ -15,7 +15,10 @@ const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete }) => (
       {completed ? "Completed" : "In progress"}
     </td>
     <td>
-      <button className="positive ui button" onClick={() => onTodoClick(uuid)}>Finish</button>
+      <div className={"ui animated fade button " + (completed ? "yellow" : "blue")} onClick={() => onTodoClick(uuid)}>
+        <div className="visible content">Toggle</div>
+        <div className="hidden content">{completed ? "Undo" : "Finish"}</div>  
+      </div>
     </td>
     <td>
       <button className="negative ui button" onClick={() => onTodoDelete(uuid)}>Delete</button>
