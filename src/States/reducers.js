@@ -16,7 +16,7 @@ const visibilityFilter = (state = SHOW_ALL, action) => {
 const partialTodos = [
   { text: "Learn React from official doc" },
   { text: "Learn Redux from official doc" },
-  { text: "Lent" },
+  { text: "Assemble new PC" },
   { text: "Learn basic mortgage knowledge" }
 ];
 
@@ -36,7 +36,7 @@ const todos = (state = initialTodos, action) => {
     }];
   case TOGGLE_TODO: // Iterate; toggle if UUID matches
     return state.map(todo => todo.uuid === action.uuid ? 
-      { ...todo, completed: !todo.combineReducers } :
+      { ...todo, completed: !todo.completed } :
       todo
     );
   default:

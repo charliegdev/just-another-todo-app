@@ -1,50 +1,22 @@
 import React, { Component } from "react";
-import TodoList from "./components/TodoList/TodoList";
-import store from "./states/store";
-import Button from "./components/Button";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import VisibleTodoList from "./containers/VisibleTodoList";
+import AddTodo from "./containers/AddTodo";
 
-const todos = store.getState().todos;
 class App extends Component {
   render() {
     return (
-      <div className="ui container text center aligned">
+      <div className="ui container text">
+        <Header />
+        <AddTodo />
         <br />
-        <h1 className="ui header">
-          <i className="icon tasks" />
-          <div className="content">
-            Just Another Todo App
-            <div className="sub header">
-              Made in React, Redux & Semantic UI React
-            </div>
-          </div>
-        </h1>
-        <TodoList todos={todos} onTodoClick={uuid => console.log(uuid)} />
-        <Button
-          active={false}
-          total={todos.length}
-          iconName="server"
-          onClick={() => console.log("clicked")}
-        >
-          All Items
-        </Button>
-        <Button
-          active={true}
-          total={todos.filter(todo => todo.completed === false).length}
-          iconName="thumbtack"
-          onClick={() => console.log("clicked")}
-        >
-          Incomplete
-        </Button>
-        <Button
-          active={false}
-          total={todos.filter(todo => todo.completed === true).length}
-          iconName="heart"
-          onClick={() => console.log("clicked")}
-        >
-          Completed
-        </Button>
+        <VisibleTodoList />
+        <br />
+        <Footer />
       </div>
     );
   }
 }
+
 export default App;
