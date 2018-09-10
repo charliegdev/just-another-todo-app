@@ -9,7 +9,8 @@ View it live on [Heroku]!
 This application is scaffolded using [create-react-app](https://github.com/facebook/create-react-app), so the process is simple:
 
 1. Make sure you have NodeJS and Git installed.
-1. Clone the repo: `git clone https://github.com/charliegdev/hacker-news-redux.git && cd hacker-news-redux`
+1. Clone the repo: `git clone https://github.com/charliegdev/just-another-todo-app.git`
+1. Go into the repo: `cd just-another-todo-app`
 1. Install dependencies: `npm i`
 1. Start the dev server: `npm start`
 1. Start the tests: `npm test`
