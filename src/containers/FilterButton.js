@@ -3,7 +3,7 @@ import { actionCreators, visibilityFilters } from "../states/actions";
 import Button from "../components/Button";
 
 const { setVisibilityFilter } = actionCreators;
-// const Button = ({ active, total, iconName = "heart", children, onClick }) => 
+
 const mapStateToProps = (state, ownProps) => {
   // iconName can also be defined here using filters, but not doing that because:
   // 1. want to keep this function as small as possible, since it gets called frequently

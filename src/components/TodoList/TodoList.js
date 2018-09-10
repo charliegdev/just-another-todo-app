@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Todo from "../Todo";
+import ActionableTodo from "../../containers/ActionableTodo";
 
-const TodoList = ({ todos, onTodoClick, onTodoDelete, onTodoMoveUp, onTodoMoveDown }) => 
-  <table className="ui very basic celled table">
+const TodoList = ({ todos }) => 
+  <table className="ui very basic celled table single line">
     <thead>
       <tr>
         <th>Name</th>
@@ -14,14 +14,7 @@ const TodoList = ({ todos, onTodoClick, onTodoDelete, onTodoMoveUp, onTodoMoveDo
       </tr>
     </thead>
     <tbody>
-      {todos.map(todo => <Todo 
-        key={todo.uuid} 
-        {...todo} 
-        onTodoClick={onTodoClick} 
-        onTodoDelete={onTodoDelete}
-        onTodoMoveUp={onTodoMoveUp}
-        onTodoMoveDown={onTodoMoveDown}
-      />)}
+      {todos.map(todo => <ActionableTodo key={todo.uuid} {...todo} />)}
     </tbody>
   </table> 
 
@@ -32,11 +25,7 @@ TodoList.propTypes = {
       completed: PropTypes.bool.isRequired,
       text: PropTypes.string.isRequired
     }).isRequired
-  ).isRequired,
-  onTodoClick: PropTypes.func.isRequired,
-  onTodoDelete: PropTypes.func.isRequired,
-  onTodoMoveUp: PropTypes.func.isRequired,
-  onTodoMoveDown: PropTypes.func.isRequired
+  ).isRequired
 };
 
 export default TodoList;
