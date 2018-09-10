@@ -17,7 +17,6 @@ const visibilityFilters = {
 
 const { ADD_TODO, TOGGLE_TODO, DELETE_TODO, MOVE_TODO_UP, MOVE_TODO_DOWN, SET_VISIBILITY_FILTER } = todoActions;
 
-// Action creators
 const actionCreators = {
   addTodo: text => ({ type: ADD_TODO, text }),
   toggleTodo: uuid => ({ type: TOGGLE_TODO, uuid }),
