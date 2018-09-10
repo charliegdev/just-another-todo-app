@@ -33,7 +33,6 @@ const toggleTodoReducer = (state, action) =>
 
 const moveTodo = (state, action, direction) => {
   // direction: true = up, false = down
-  console.log(state.map(todo => todo.text));
   const newList = [...state];
   const index = newList.findIndex(element => element.uuid === action.uuid);  
   const destination = direction ? index - 1 : index + 1;
