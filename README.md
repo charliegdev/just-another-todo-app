@@ -1,7 +1,8 @@
 # Just Another Todo App
 Just another todo app, made in React and Redux. 
 
-View it live on [Heroku]!
+**View it live on [Heroku](https://rocky-bastion-19004.herokuapp.com/)!**
+
 ![UI](UI.JPG)
 
 
