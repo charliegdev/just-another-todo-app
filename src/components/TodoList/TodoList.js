@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import ActionableTodo from "../../containers/ActionableTodo";
 
 const TodoList = ({ todos }) => 
-  <table className="ui very basic celled table">
+  <table className="ui very basic celled table single line">
     <thead>
       <tr>
         <th>Name</th>

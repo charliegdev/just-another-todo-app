@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Todo = ({ uuid, text, completed, onTodoToggle, onTodoDelete, onTodoMoveUp, onTodoMoveDown }) => (
-  // I wish there are better ways to determine what to display/do without using several ternary operators
+  // FIXME: Find better ways to determine what to display/do without using several ternary operators
   <tr className="item">
     <td>
       <div className={"content" + (completed ? " completed-item" : "")}>
