@@ -74,7 +74,7 @@ This way, I don't have to change my `package.json` and copy `.eslintrc` from my 
 ### Hot Module Replacement
 Hot Module Replacement: when a component's code changes, HMR allows the browser to re-render that component only, without refreshing the whole page thus losing application state. 
 
-Plain React allows HMR, and it's very joyful to use. Now with Redux 2.0 or newer, I have to use it explicitly. The migration guide is [here](https://github.com/reduxjs/react-redux/releases/tag/v2.0.0), but I haven't got time to look at how to use it. Will definitely get it working in the future.
+Plain React allows the usage of HMR implicitly, and it's very joyful to use. Now with Redux 2.0 or newer, I have to use it explicitly. The migration guide is [here](https://github.com/reduxjs/react-redux/releases/tag/v2.0.0), but I haven't got time to look at how to use it. I'll definitely get it working in the future.
 
 ### Semantic UI React
 I have used Semantic UI in several of my past projects; however, this is my first time trying the teams' official React integration, [**Semantic UI for React**](https://react.semantic-ui.com/).
@@ -101,3 +101,12 @@ import { Menu } from "semantic-ui-react";
 ```
 
 I fell in love with the new way at once, and started trying it in this project. Unfortunately, Semantic UI React causes Jest tests to slow down from 200ms to 10s. Googling reveals no solutions yet, and it seems neither the Semantic team nor the Jest team want to step in to fix it. Therefore, I had to remove it and revert to the old way. I'm not sure if there will be a solution in the future.
+
+## Final Thoughts
+It seems "Todo App" is the "Hello World" for learning frameworks and libraries. Since it involves changing application states, it's a good project to learn:
+
+1. How to use Redux to manage a JavaScript application's states
+1. How to integrate Redux with React using `react-redux` and the [presentational & container components](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0) design pattern
+1. What Redux solves, and how to take advantage of it over React local state.
+
+That being said, for an application this scale, React local state is more than capable of handling the states. Using Redux here is purely for educational purpose. The more functionalities we pile onto this simple application, the more beneficial Redux is; however, for now, local state is totally fine.
