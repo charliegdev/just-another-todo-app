@@ -40,6 +40,7 @@ const moveTodo = (state, action, direction) => {
   // If user tries to move up the 0st element or move down the final element, don't allow.
   if (destination >= newList.length || destination <= -1) return state;
 
+  // Swap
   const temp = newList[index];
   newList[index] = newList[destination];
   newList[destination] = temp;
@@ -48,6 +49,7 @@ const moveTodo = (state, action, direction) => {
 };
 
 // The real todo reducer.
+// In combinedReducer, the name of this function is used as the state name too. So don't rename this.
 const todos = (state = initialTodos, action) => {
   switch (action.type) {
   case ADD_TODO:

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete, onTodoMoveUp, onTodoMoveDown }) => (
+const Todo = ({ uuid, text, completed, onTodoToggle, onTodoDelete, onTodoMoveUp, onTodoMoveDown }) => (
   // I wish there are better ways to determine what to display/do without using several ternary operators
   <tr className="item">
     <td>
@@ -13,7 +13,7 @@ const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete, onTodoMoveUp, 
       {completed ? "Completed" : "In progress"}
     </td>
     <td>
-      <div className={"ui button " + (completed ? "yellow" : "blue")} onClick={() => onTodoClick(uuid)}>
+      <div className={"ui button " + (completed ? "yellow" : "blue")} onClick={() => onTodoToggle(uuid)}>
         Toggle
       </div>
     </td>
@@ -35,7 +35,7 @@ Todo.propTypes = {
   uuid: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
-  onTodoClick: PropTypes.func.isRequired,
+  onTodoToggle: PropTypes.func.isRequired,
   onTodoDelete: PropTypes.func.isRequired,
   onTodoMoveUp: PropTypes.func.isRequired,
   onTodoMoveDown: PropTypes.func.isRequired
