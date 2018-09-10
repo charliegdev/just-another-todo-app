@@ -22,7 +22,7 @@ This repo follows the steps in this [Redux official tutorial](https://redux.js.o
     * Delete a todo
     * Reorder the list
     * Display the total amount of todos under a category in filter buttons
-1. Utilized `react-redux` to avoid *ghost props*: the props which are received by a parent, then passed down to its descendents, possibly for a couple layers, without using them in the parent at all. This is an issue that comes with React's local state that can be solved by `react-redux`, so I created `ActionableTodo` container component, in order to free `TodoList` from having to pass ghost props. No more ghost props.
+1. Utilized `react-redux` to avoid *ghost props*: props which are received by a parent, then passed down to its descendents (possibly for a couple layers) without using them in the parent at all. This is an issue with React local state, so I created `ActionableTodo` container component and hooked it up with `react-redux` to solve this problem. No more ghost props.
     * Old:
     ```jsx
     // Too many ghost props!
