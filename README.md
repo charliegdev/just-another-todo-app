@@ -6,10 +6,10 @@ View it live on [Heroku]!
 
 
 ## Build & Deploy
-This application is scaffolded using `create-react-app`, so the process is simple:
+This application is scaffolded using [create-react-app](https://github.com/facebook/create-react-app), so the process is simple:
 
 1. Make sure you have NodeJS and Git installed.
-1. Clone the repo: `https://github.com/charliegdev/hacker-news-redux.git && cd hacker-news-redux`
+1. Clone the repo: `git clone https://github.com/charliegdev/hacker-news-redux.git && cd hacker-news-redux`
 1. Install dependencies: `npm i`
 1. Start the dev server: `npm start`
 1. Start the tests: `npm test`
@@ -17,11 +17,41 @@ This application is scaffolded using `create-react-app`, so the process is simpl
 ## On Top of the Tutorial
 This repo follows the steps in this [Redux official tutorial](https://redux.js.org/basics/usagewithreact); however, many things are done on top of the tutorial sample, such as:
 
-1. In addition to the existing functionalities implemented in the tutorial, 2 new functionalities are implemented:
+1. Implemented several new functionalities:
     * Delete a todo
     * Reorder the list
     * Display the total amount of todos under a category in filter buttons
-1. Utilized Redux to avoid "ghost props": those props which are received by a parent, then passed down to its descendent without using it at all. This is an issue that comes with React's local state, that can also be solved by `react-redux`, so I created `ActionableTodo` container component to free `TodoList` from having to pass ghost props. No more ghost props.
+1. Utilized `react-redux` to avoid *ghost props*: the props which are received by a parent, then passed down to its descendents, possibly for a couple layers, without using them in the parent at all. This is an issue that comes with React's local state that can be solved by `react-redux`, so I created `ActionableTodo` container component, in order to free `TodoList` from having to pass ghost props. No more ghost props.
+    * Old:
+    ```jsx
+    // Too many ghost props!
+    const TodoList = ({ todos, onTodoClick, onTodoDelete, onTodoMoveUp, onTodoMoveDown }) => (
+      // ...
+      // None of the functions are used in <TodoList />; those props are simply passed to <Todo />
+      {todos.map(todo => <Todo 
+        key={todo.uuid} 
+        {...todo} 
+        onTodoClick={onTodoClick} 
+        onTodoDelete={onTodoDelete}
+        onTodoMoveUp={onTodoMoveUp}
+        onTodoMoveDown={onTodoMoveDown}
+      />)}
+      // ...
+    );
+    ```
+    * New:
+    ```jsx
+    // No longer receives those functions as props 
+    const TodoList = ({ todos }) => (
+      // ...
+      // No longer passes them.
+      // <ActionableTodo /> will pass those to <Todo /> with the help of <Provider></Provider>
+      {todos.map(todo => <ActionableTodo key={todo.uuid} {...todo} />)}
+      // ...
+    );
+
+    ```
+
 1. All presentational components come with a rendering test and a snapshot test.
 1. The UI is designed and implemented with Semantic UI, so it looks more completed than a bare minimal tutorial sample.
 
@@ -58,7 +88,8 @@ This means instead of writing HTML/JSX the old way, like this:
 
 I can write it like this:
 ```jsx
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { Menu } from "semantic-ui-react";
 
 <Menu>
   <Menu.Item as={Link} to='/home'>
@@ -67,4 +98,4 @@ import { Link } from 'react-router-dom'
 </Menu>
 ```
 
-I fell in love with the new way at once, and started trying it in this project. Unfortunately, Semantic UI React causes jest test to slow down from 200ms to 10s. Googling reveals no solutions yet, and it seems neither the Semantic team nor the Jest team want to step in to fix it. Therefore, I had to remove it and revert to the old way. I'm not sure if there will be a solution in the future.
+I fell in love with the new way at once, and started trying it in this project. Unfortunately, Semantic UI React causes Jest tests to slow down from 200ms to 10s. Googling reveals no solutions yet, and it seems neither the Semantic team nor the Jest team want to step in to fix it. Therefore, I had to remove it and revert to the old way. I'm not sure if there will be a solution in the future.
