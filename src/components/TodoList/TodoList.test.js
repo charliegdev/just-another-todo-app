@@ -1,18 +1,16 @@
 import React from "React";
+import { Provider } from "react-redux";
 import ReactDOM from "react-dom";
 import renderer from "react-test-renderer";
 import TodoList from "./TodoList";
 import store from "../../states/store";
 
 describe("TodoList", () => {
-  const mockFunc = () => console.log("test");
-  const todoList = <TodoList 
-    todos={store.getState().todos} 
-    onTodoClick={mockFunc} 
-    onTodoDelete={mockFunc} 
-    onTodoMoveUp={mockFunc}
-    onTodoMoveDown={mockFunc}
-  />
+  const todoList = (
+    <Provider store={store}>
+      <TodoList todos={store.getState().todos} />
+    </Provider>
+  );
 
   it("renders without crashing", () => {
     const div = document.createElement("div");

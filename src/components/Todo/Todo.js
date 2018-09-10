@@ -36,7 +36,9 @@ Todo.propTypes = {
   text: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
   onTodoClick: PropTypes.func.isRequired,
-  onTodoDelete: PropTypes.func.isRequired
+  onTodoDelete: PropTypes.func.isRequired,
+  onTodoMoveUp: PropTypes.func.isRequired,
+  onTodoMoveDown: PropTypes.func.isRequired
 };
 
 export default Todo;
