@@ -7,9 +7,9 @@ Just another todo app, made in React and Redux.
 
 
 ## Build & Deploy
-This application is scaffolded using [create-react-app](https://github.com/facebook/create-react-app), so the process is simple:
+You can also clone this repo and run it locally on your own machine. This application is scaffolded using [create-react-app](https://github.com/facebook/create-react-app), so the process is the standard one:
 
-1. Make sure you have NodeJS and Git installed.
+1. Make sure you have [Node.js](https://nodejs.org/en/) and [Git](https://git-scm.com/downloads) installed.
 1. Clone the repo: `git clone https://github.com/charliegdev/just-another-todo-app.git`
 1. Go into the repo: `cd just-another-todo-app`
 1. Install dependencies: `npm i`
