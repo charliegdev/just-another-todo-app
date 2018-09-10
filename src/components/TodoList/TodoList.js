@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Todo from "../Todo";
 
-const TodoList = ({ todos, onTodoClick, onTodoDelete }) => 
+const TodoList = ({ todos, onTodoClick, onTodoDelete, onTodoMoveUp, onTodoMoveDown }) => 
   <table className="ui very basic celled table">
     <thead>
       <tr>
@@ -19,6 +19,8 @@ const TodoList = ({ todos, onTodoClick, onTodoDelete }) =>
         {...todo} 
         onTodoClick={onTodoClick} 
         onTodoDelete={onTodoDelete}
+        onTodoMoveUp={onTodoMoveUp}
+        onTodoMoveDown={onTodoMoveDown}
       />)}
     </tbody>
   </table> 
@@ -32,7 +34,9 @@ TodoList.propTypes = {
     }).isRequired
   ).isRequired,
   onTodoClick: PropTypes.func.isRequired,
-  onTodoDelete: PropTypes.func.isRequired
+  onTodoDelete: PropTypes.func.isRequired,
+  onTodoMoveUp: PropTypes.func.isRequired,
+  onTodoMoveDown: PropTypes.func.isRequired
 };
 
 export default TodoList;

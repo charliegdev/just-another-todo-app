@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete }) => (
+const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete, onTodoMoveUp, onTodoMoveDown }) => (
   // I wish there are better ways to determine what to display/do without using several ternary operators
   <tr className="item">
     <td>
@@ -22,10 +22,10 @@ const Todo = ({ uuid, text, completed, onTodoClick, onTodoDelete }) => (
       <button className="negative ui button" onClick={() => onTodoDelete(uuid)}>Delete</button>
     </td>
     <td>
-      <button className="ui icon button">
+      <button className="ui icon button" onClick={() => onTodoMoveUp(uuid)}>
         <i className="arrow circle up icon"></i>
       </button>
-      <button className="ui icon button">
+      <button className="ui icon button" onClick={() => onTodoMoveDown(uuid)}>
         <i className="arrow circle down icon"></i>
       </button>
     </td>

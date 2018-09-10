@@ -6,7 +6,13 @@ import store from "../../states/store";
 
 describe("TodoList", () => {
   const mockFunc = () => console.log("test");
-  const todoList = <TodoList todos={store.getState().todos} onTodoClick={mockFunc} onTodoDelete={mockFunc} />
+  const todoList = <TodoList 
+    todos={store.getState().todos} 
+    onTodoClick={mockFunc} 
+    onTodoDelete={mockFunc} 
+    onTodoMoveUp={mockFunc}
+    onTodoMoveDown={mockFunc}
+  />
 
   it("renders without crashing", () => {
     const div = document.createElement("div");
